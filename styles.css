@@ -1961,3 +1961,38 @@ to {
     /* 가운데 정렬 */
   }
 }
+@media (max-width: 768px) {
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-inner,
+  .brand-intro-grid,
+  .editorial-inner,
+  .huty-inner,
+  .collection-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
