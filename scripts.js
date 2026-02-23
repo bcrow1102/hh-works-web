@@ -187,7 +187,13 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      el.textContent = Math.round(easeOut(progress) * target).toLocaleString('ko-KR');
+      const value = Math.round(easeOut(progress) * target);
+
+if (target === 2025) {
+  el.textContent = String(value);
+} else {
+  el.textContent = value.toLocaleString('ko-KR');
+}
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -535,3 +541,4 @@ function updateCart() {
   `;
   // container.appendChild(marquee);
 })();
+
