@@ -1762,41 +1762,119 @@ img {
   }
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ============================================================
+   RESPONSIVE & MOBILE FIXES (햄버거 메뉴 복구 최종본)
+   ============================================================ */
+
+/* [1024px 이하] 태블릿 */
 @media (max-width: 1024px) {
-  .brand-intro-grid {
+
+  .brand-intro-grid,
+  .editorial-inner,
+  .huty-inner,
+  .collection-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
-  }
-
-  .editorial-inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .huty-inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .cat-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+}
 
-  .collection-grid {
-    grid-template-columns: 1fr;
+/* [768px 이하] 모바일 핵심 수정 */
+@media (max-width: 768px) {
+  :root {
+    --header-h: 60px;
   }
 
-  .collection-card-large {
-    min-height: 440px;
+  /* 1. 헤더: 양끝 배치로 햄버거 공간 확보 */
+  .header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 var(--space-md) !important;
   }
 
-  .collection-card {
-    min-height: 280px;
+  .nav-left {
+    display: none !important;
+    /* PC 메뉴 제거 */
+  }
+
+  .logo {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+
+  .logo-text {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* 햄버거와 카트 아이콘이 있는 오른쪽 영역 */
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    /* 강제로 보이게 설정 */
+    order: 2;
+    /* 아이콘들 중 가장 오른쪽에 배치 */
+  }
+
+  /* 2. 히어로 섹션: 중앙 정렬 유지 */
+  .hero {
+    min-height: auto !important;
+    padding: 130px 0 70px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 0 var(--space-md);
+  }
+
+  .hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero .hero-ctas {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 2.5rem auto 0 auto !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    gap: 12px !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .btn {
+    width: 100% !important;
+  }
+
+  /* 3. 섹션 레이아웃 정리 */
+  .brand-stat-block {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  .cat-grid,
+  .lookbook-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
   }
 
   .editorial-visual-side {
@@ -1804,199 +1882,61 @@ img {
   }
 
   .huty-visual {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --header-h: 60px;
+    display: none !important;
   }
 
-  .nav-left {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .logo {
-    position: static;
-    transform: none;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 10vw, 4.5rem);
-  }
-
-  .cat-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lookbook-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lb-item:last-child {
-    display: none;
-  }
-
-  .review-card {
-    flex: 0 0 calc(85% - 1rem);
-  }
-
+  /* 4. 푸터 */
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-bottom-links {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-ctas {
-    flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
   }
 }
 
+/* [480px 이하] 극소형 화면 */
 @media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
   .cat-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lookbook-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .brand-stat-block {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr !important;
   }
 }
 
-/* ===== HERO MARQUEE (복구) ===== */
-#heroParticles canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-
-from {
-  transform: translateX(0);
-}
-
-to {
-  transform: translateX(-50%);
-}
-}
-
-.hero-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.hero .hero-content .hero-ctas {
-  align-self: flex-start !important;
-  /* 세로 정렬 기준을 위로 */
-  justify-self: end !important;
-  /* (grid면) 오른쪽 유지 */
-  margin-top: 12px !important;
-  /* 이제는 아래로 내려감 */
-}
-
-/* ===== HERO CTA BOTTOM FIX ===== */
-
-.hero {
-  position: relative;
-}
-
-/* 데스크탑 */
-.hero .hero-ctas {
-  position: absolute;
-  bottom: 48px;
-  /* 히어로 바닥에서 거리 (40~56px 조절 가능) */
-  right: 64px;
-  /* 오른쪽 여백 (48~72px 조절 가능) */
-  display: flex;
-  gap: 12px;
-}
-
-/* 태블릿 */
-@media (max-width: 1024px) {
+/* ---------- PC-ONLY FIXES (PC 버전 버튼 복구) ---------- */
+@media (min-width: 769px) {
   .hero .hero-ctas {
-    bottom: 40px;
-    right: 40px;
-  }
-}
-
-/* 모바일 */
-@media (max-width: 768px) {
-  .hero .hero-ctas {
-    position: static;
-    /* 다시 일반 흐름으로 */
-    margin-top: 32px;
-    /* 서브카피 아래 자연스럽게 */
-    justify-content: center;
-    /* 가운데 정렬 */
-  }
-}
-@media (max-width: 768px) {
-
-  .header-inner {
-    flex-direction: column;
-    align-items: center;
+    position: absolute !important;
+    /* 다시 절대 위치로 고정 */
+    bottom: 64px !important;
+    /* 하단에서 64px 띄움 */
+    right: 64px !important;
+    /* 우측에서 64px 띄움 */
+    left: auto !important;
+    /* 왼쪽 정렬 해제 */
+    transform: none !important;
+    /* 중앙 정렬 해제 */
+    flex-direction: row !important;
+    /* 가로 배열로 복구 */
+    width: auto !important;
+    /* 너비를 콘텐츠에 맞춤 */
+    display: flex !important;
+    gap: 1rem !important;
+    z-index: 10 !important;
   }
 
-  .nav-left,
-  .nav-right {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+  .hero-content {
+    text-align: left !important;
+    /* PC에선 왼쪽 정렬 */
+    margin-left: 0 !important;
   }
-
-  .hero-inner,
-  .brand-intro-grid,
-  .editorial-inner,
-  .huty-inner,
-  .collection-grid,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-  body {
-    overflow-x: hidden;
-  }
-
 }
