@@ -1940,3 +1940,156 @@ img {
     margin-left: 0 !important;
   }
 }
+
+/* ============================================================
+    MOBILE & iPhone SE OPTIMIZATION
+   ============================================================ */
+
+/* [768px 이하] 모바일 공통 */
+@media (max-width: 768px) {
+  :root {
+    --header-h: 60px;
+    --space-md: 1.25rem;
+    /* 모바일 컨테이너 좌우 여백 최적화 */
+  }
+
+  /* 1. 헤더: 햄버거 메뉴 공간 확보 */
+  .header-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 var(--space-md) !important;
+  }
+
+  .nav-left {
+    display: none !important;
+  }
+
+  .logo {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  .logo-text {
+    font-size: 1rem !important;
+  }
+
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    order: 2;
+  }
+
+  /* 2. 카테고리 그리드 (핵심 수정) */
+  .cat-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* 무조건 2열 배치 */
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .cat-card {
+    padding: 1.5rem 0.5rem !important;
+    text-align: center;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* 3. 히어로 섹션 */
+  .hero {
+    min-height: auto !important;
+    padding: 120px 0 60px 0 !important;
+  }
+
+  .hero-title {
+    font-size: 2.6rem !important;
+    text-align: center;
+  }
+
+  .hero-ctas {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 2rem auto 0 !important;
+    gap: 10px !important;
+  }
+
+  .btn {
+    width: 100% !important;
+  }
+
+  /* 4. 기타 섹션 정리 */
+  .brand-stat-block {
+    grid-template-columns: 1fr !important;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 컬렉션은 가독성을 위해 1열 */
+  .huty-visual {
+    display: none !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* [480px 이하] 아이폰 SE 등 소형 모바일 */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px !important;
+    /* 쏠림 방지를 위한 고정 패딩 */
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  /* 카테고리 2열 유지 및 중앙 정렬 보장 */
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .cat-label {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* ---------- PC-ONLY FIXES (PC 버전 복구) ---------- */
+@media (min-width: 769px) {
+  .hero .hero-ctas {
+    position: absolute !important;
+    bottom: 64px !important;
+    right: 64px !important;
+    left: auto !important;
+    transform: none !important;
+    flex-direction: row !important;
+    width: auto !important;
+    display: flex !important;
+    gap: 1rem !important;
+    z-index: 10 !important;
+  }
+
+  .hero-content {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+}
