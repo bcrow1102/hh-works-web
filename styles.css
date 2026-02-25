@@ -876,7 +876,7 @@ img {
   width: min(360px, 75%);
   height: auto;
   object-fit: contain;
-  box-shadow: 0 12px 24pxrgba(0, 0, 0, .28);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .28);
   opacity: .98;
   transform: translateY(-2px);
 }
@@ -2506,3 +2506,4 @@ img {
     padding: 1.25rem;
   }
 }
+
