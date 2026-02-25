@@ -858,10 +858,176 @@ img {
 
 .card-desc {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+
   margin-bottom: 1.25rem;
   line-height: 1.5;
 }
+
+/* --- Pro Series ampoule image --- */
+.ampoule-wrap {
+  margin: 14px 0 16px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ampoule-wrap img {
+  width: min(360px, 75%);
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 12px 24pxrgba(0, 0, 0, .28);
+  opacity: .98;
+  transform: translateY(-2px);
+}
+
+/* ===== PRO CARD FINAL (PC + MOBILE ONE SHOT) ===== */
+
+
+
+/* ===== HUTY PRO (SVG BG) ===== */
+.collection-card.collection-card-large.card-pro {
+  position: relative;
+  overflow: hidden;
+}
+
+/* SVG 배경 */
+.collection-card.collection-card-large.card-pro .huty-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.collection-card.collection-card-large.card-pro .huty-hero svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+
+}
+
+/* 하단 그라데이션 */
+.collection-card.collection-card-large.card-pro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, .65) 0%,
+      rgba(0, 0, 0, .35) 35%,
+      rgba(0, 0, 0, 0) 70%);
+}
+
+/* PRO에서만 기존 bg 레이어 숨김 */
+.collection-card.collection-card-large.card-pro .card-bg {
+  display: none !important;
+}
+
+/* 콘텐츠(텍스트/버튼)는 최상단 */
+.collection-card.collection-card-large.card-pro .card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.collection-card.collection-card-large.card-pro .pro-text {
+  max-width: 420px;
+}
+
+.collection-card.collection-card-large.card-pro .card-title {
+  margin-bottom: .5rem;
+}
+
+.collection-card.collection-card-large.card-pro .card-desc {
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+/* 콘텐츠 최상단 */
+.collection-card.collection-card-large.card-pro .card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+/* PRO에서만: 우측 카드랑 동일하게 '카드 자체' 바닥정렬만 쓰고
+   내부는 column + margin-top:auto로 끝내기 */
+.collection-card.collection-card-large.card-pro .card-content--pro {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* pro-text를 내부에서 바닥으로 밀기 */
+.collection-card.collection-card-large.card-pro .pro-text {
+  margin-top: auto;
+}
+
+.collection-card.collection-card-large.card-pro .card-content--pro {
+  padding-bottom: 24px;
+  /* ← 우측 카드와 동일 간격 */
+  min-width: 0;
+  /* ← 줄바꿈/폭 계산 안정화 */
+}
+
+/* PRO: 콘텐츠는 최상단 레이어 + 바닥 정렬(우측 카드랑 동일 기준) */
+.collection-card.collection-card-large.card-pro .card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* PRO: 내부를 column으로 만들고, 맨 아래로 밀기 */
+.collection-card.collection-card-large.card-pro .card-content--pro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+  min-width: 0;
+}
+
+/* PRO: 텍스트 블록은 자연스럽게 바닥에 */
+.collection-card.collection-card-large.card-pro .pro-text {
+  width: min(520px, 100%);
+  color: #fff;
+  margin: 0;
+}
+
+/* 한글 세로깨짐 방지 */
+.collection-card.collection-card-large.card-pro .pro-text,
+.collection-card.collection-card-large.card-pro .pro-text * {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+/* Mobile */
+@media(max-width:768px) {
+
+  .collection-card.collection-card-large.card-pro {
+    min-height: 360px;
+  }
+
+  .collection-card.collection-card-large.card-pro .pro-text {
+    left: 16px;
+    right: 16px;
+    bottom: 18px;
+    width: 100%;
+  }
+}
+
+
+
+
 
 /* ---------- EDITORIAL ---------- */
 .editorial {
@@ -1207,6 +1373,39 @@ img {
 .huty-feature p {
   font-size: 0.82rem;
   color: var(--c-grey);
+}
+
+/* --- SAFE PATCH: HUTY SPOTLIGHT image only (no layout break) --- */
+.huty-spotlight .hc-front {
+  position: relative;
+  /* ::before, img layering 안정화 */
+}
+
+.huty-spotlight .hc-front .huty-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  /* 텍스트보다 뒤 */
+  opacity: 0.92;
+  /* 기존 그라데이션/무드 살리기 */
+  pointer-events: none;
+  /* 클릭/드래그 방해 방지 */
+}
+
+/* 텍스트는 항상 이미지 위 */
+.huty-spotlight .hc-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* 기존 hc-front::before(라디얼 글로우)도 이미지 위로 */
+.huty-spotlight .hc-front::before {
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ---------- REVIEWS ---------- */
@@ -2091,5 +2290,219 @@ img {
   .hero-content {
     text-align: left !important;
     margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .huty-visual {
+    display: block !important;
+  }
+
+  .huty-card-stack {
+    max-width: 280px;
+    height: 360px;
+  }
+
+  .hc-back {
+    height: 330px;
+  }
+
+  .hc-mid {
+    height: 345px;
+  }
+
+  .hc-front {
+    height: 360px;
+    padding: 1.25rem;
+  }
+}
+
+/* ============================================================
+   DAILY + SIGNATURE — ONE SHOT PATCH (FINAL)
+   - cover 유지
+   - PC 크롭 최소화: Signature는 줌아웃 + 포지션
+   - Daily는 가방 살리기 유지
+   ============================================================ */
+
+/* 공통: 카드 bg 이미지 레이어 안정화 */
+.collection-card.is-daily .card-bg,
+.collection-card.is-signature .card-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* 공통: bg 이미지 기본 */
+.collection-card.is-daily .card-bg-img,
+.collection-card.is-signature .card-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover !important;
+  transform-origin: 50% 0%;
+}
+
+/* =======================
+   DAILY (가방 살리기)
+   ======================= */
+.collection-card.is-daily .card-bg {
+  background: var(--g-card-2);
+}
+
+.collection-card.is-daily .card-bg-img {
+  object-position: 50% 62% !important;
+  /* = center 62% */
+  transform: none !important;
+}
+
+/* PC에서 Daily 카드 높이 유지 */
+@media (min-width: 769px) {
+  .collection-card.is-daily {
+    min-height: 500px !important;
+  }
+}
+
+/* =======================
+   SIGNATURE (PC 크롭 최소화)
+   - 포지션 위로 + 살짝 줌아웃
+   ======================= */
+/* =======================
+   SIGNATURE (PC)
+   - scale 제거(좌우 짤림 방지)
+   - y만 과감히 올리기
+   ======================= */
+.collection-card.is-signature .card-bg-img {
+  object-position: 50% 0% !important;
+  /* 더 위(최대) */
+  transform: none !important;
+  /* ✅ scale 제거 */
+}
+
+/* 모바일 유지 */
+@media (max-width: 768px) {
+  .collection-card.is-signature .card-bg-img {
+    object-position: 50% 12% !important;
+    transform: none !important;
+  }
+}
+
+/* Signature만 hover 확대 차단(원하면 유지) */
+.collection-card.is-signature:hover .card-bg {
+  transform: none !important;
+}
+
+@media (min-width:769px) {
+  .collection-card.is-signature {
+    min-height: 540px;
+  }
+}
+
+@media (min-width: 769px) {
+  .collection-card.is-daily {
+    min-height: 680px !important;
+  }
+}
+
+/* ============================================================
+   HUTY PRO — ONE SHOT FINAL (TOP BAR KILL)
+   ============================================================ */
+
+.collection-card.collection-card-large.card-pro {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #fff;
+
+  padding: 0;
+  box-shadow: none;
+
+  --pro-safe-bottom: 110px;
+  --pro-hero-bleed: 80px;
+  /* ✅ 상단 띠 제거용: 60~120 사이로 */
+}
+
+/* ✅ 카드 공통 상단 오버레이(띠) 주범 제거 */
+.collection-card.collection-card-large.card-pro::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Pro에서 불필요한 bg/orb 제거 */
+.collection-card.collection-card-large.card-pro .card-bg,
+.collection-card.collection-card-large.card-pro .card-orb {
+  display: none !important;
+}
+
+/* ===== HERO: 위로 “bleed” 시켜서 상단 빈틈 제거 ===== */
+.collection-card.collection-card-large.card-pro .huty-hero {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  top: calc(var(--pro-hero-bleed) * -1);
+  bottom: 0;
+
+  z-index: 0;
+  pointer-events: none;
+  background: #fff;
+}
+
+.collection-card.collection-card-large.card-pro .huty-hero svg {
+  width: 100%;
+  height: calc(100% + var(--pro-hero-bleed));
+  /* ✅ 위로 늘려서 빈틈 제거 */
+  display: block;
+  background: #fff;
+}
+
+/* ===== 하단 그라데이션 (하단만) ===== */
+.collection-card.collection-card-large.card-pro::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--pro-safe-bottom);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, .60) 0%,
+      rgba(0, 0, 0, .28) 45%,
+      rgba(0, 0, 0, 0) 100%);
+}
+
+/* ===== 콘텐츠 하단 고정 ===== */
+.collection-card.collection-card-large.card-pro .card-content {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 2rem;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.collection-card.collection-card-large.card-pro .card-content button,
+.collection-card.collection-card-large.card-pro .card-content a {
+  pointer-events: auto;
+}
+
+.collection-card.collection-card-large.card-pro .pro-text {
+  max-width: 520px;
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 640px) {
+  .collection-card.collection-card-large.card-pro {
+    --pro-safe-bottom: 100px;
+    --pro-hero-bleed: 60px;
+  }
+
+  .collection-card.collection-card-large.card-pro .card-content {
+    padding: 1.25rem;
   }
 }
