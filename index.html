@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HH-WORKS — 건강과 기술이 만나는 곳. 당신의 라이프스타일을 위한 프리미엄 웰니스 솔루션." />
+  <title>HH-WORKS | 웰니스 라이프스타일</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <nav class="nav-left">
+        <a href="#" class="nav-link">제품</a>
+        <a href="#" class="nav-link">브랜드</a>
+        <a href="#" class="nav-link">Huty</a>
+        <a href="#" class="nav-link">스토리</a>
+      </nav>
+
+      <a href="#" class="logo" aria-label="HH-WORKS 홈">
+        <span class="logo-text">HH-WORKS</span>
+      </a>
+
+      <div class="nav-right">
+        <button class="icon-btn" id="searchBtn" aria-label="검색">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="위시리스트">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </button>
+        <button class="icon-btn cart-btn" aria-label="장바구니">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span class="cart-badge">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기">✕</button>
+    <nav class="mobile-nav">
+      <a href="#" class="mobile-nav-link">제품</a>
+      <a href="#" class="mobile-nav-link">브랜드</a>
+      <a href="#" class="mobile-nav-link">Huty</a>
+      <a href="#" class="mobile-nav-link">스토리</a>
+      <a href="#" class="mobile-nav-link">고객 지원</a>
+    </nav>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="hero-gradient"></div>
+
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-reveal>신규 브랜드 2026</div>
+
+    </div>
+    <h1 class="hero-title" data-reveal>
+      <span class="hero-title-line">당신의 몸이</span>
+      <span class="hero-title-line hero-title-accent">말하는 것을</span>
+      <span class="hero-title-line">우리가 듣습니다</span>
+    </h1>
+
+    <div class="hero-ctas" data-reveal>
+      <button class="btn btn-primary" id="heroCTAPrimary">브랜드 보기</button>
+      <button class="btn btn-ghost" id="heroCTASecondary">브랜드 스토리</button>
+    </div>
+    </div>
+
+  </section>
+
+
+  <!-- ===== BRAND INTRO ===== -->
+  <section class="brand-intro section-pad" id="brand">
+    <div class="container">
+      <div class="brand-intro-grid">
+        <div class="brand-intro-text">
+          <span class="section-eyebrow" data-reveal>HH-WORKS ABOUT</span>
+          <h2 class="section-title" data-reveal>삶을 더 건강하게,<br />더 아름답게</h2>
+          <p class="section-body" data-reveal>
+            HH-WORKS는 웰니스와 라이프스타일의 경계를 지웁니다. 과학적 연구와 감각적인 디자인을 결합하여, 일상 속에서 진정한 건강을 경험할 수 있는 제품을 만듭니다.
+          </p>
+          <a href="#" class="btn btn-outline btn-sm" data-reveal>더 알아보기</a>
+        </div>
+        <div class="brand-intro-visual" data-reveal>
+          <div class="brand-visual-card">
+            <div class="brand-visual-orb brand-orb-1"></div>
+            <div class="brand-visual-orb brand-orb-2"></div>
+            <div class="brand-visual-orb brand-orb-3"></div>
+            <div class="brand-stat-block">
+              <div class="brand-stat">
+                <span class="stat-number" data-count="98">0</span><span>%</span>
+                <span class="stat-label">고객 만족도</span>
+              </div>
+              <div class="brand-stat">
+                <span class="stat-number" data-count="22">0</span><span>+</span>
+                <span class="stat-label">제휴 업체</span>
+              </div>
+              <div class="brand-stat">
+                <span class="stat-number" data-count="2025">0</span>
+                <span class="stat-label">EST.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED COLLECTION ===== -->
+  <section class="collection section-pad" id="collection">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-eyebrow">FEATURED</span>
+        <h2 class="section-title">주요 브랜드</h2>
+      </div>
+
+      <div class="collection-grid">
+        <!-- PRO (Large) -->
+        <div class="collection-card collection-card-large card-pro" data-reveal>
+          <div class="card-bg card-bg-1">
+            <div class="card-orb"></div>
+          </div>
+
+          <div class="huty-hero" aria-hidden="true">
+            <svg viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMid slice">
+              <image href="images/huty_ampoule_2400.png" width="1536" height="1536" x="-256" y="-60" />
+            </svg>
+          </div>
+          <div class="card-content card-content--pro">
+
+
+            <div class="pro-text">
+              <span class="card-tag">BEST SELLER</span>
+              <h3 class="card-title">Huty Pro Series</h3>
+              <p class="card-desc">체계적인 웰니스 관리를 위한 프리미엄 라인</p>
+              <button class="btn btn-white-sm js-card-cta" data-product="huty-pro">지금 쇼핑하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="collection-card collection-card-top is-daily" data-reveal style="--delay:0.1s">
+          <div class="card-bg card-bg-2">
+            <img class="card-bg-img" src="images/huty_daily_1024.png" alt="Daily Care" loading="lazy" />
+            <div class="card-orb"></div>
+          </div>
+
+          <div class="card-content">
+            <span class="card-tag">NEW</span>
+            <h3 class="card-title">Daily Care</h3>
+            <p class="card-desc">매일의 루틴을 완성하는 일상 케어</p>
+            <button class="btn btn-white-sm js-card-cta" data-product="daily-care">쇼핑하기</button>
+          </div>
+        </div>
+
+        <!-- SIGNATURE (Daily와 동일 구조/클래스) -->
+        <div class="collection-card collection-card-top is-signature" data-reveal style="--delay:0.2s">
+          <div class="card-bg card-bg-3">
+            <img class="card-bg-img" src="images/huty_signa_768.png" alt="Signature Edition" loading="lazy" />
+            <div class="card-orb"></div>
+            <div class="card-gradient"></div>
+          </div>
+
+          <div class="card-content">
+            <span class="card-tag">LIMITED</span>
+            <h3 class="card-title">Signature Edition</h3>
+            <p class="card-desc">한정판 시그니처 에디션</p>
+            <button class="btn btn-white-sm js-card-cta" data-product="signature-edition">쇼핑하기</button>
+          </div>
+        </div>
+      </div> <!-- ✅ .collection-grid 닫기 -->
+    </div> <!-- ✅ .container 닫기 -->
+  </section> <!-- ✅ #collection 섹션 닫기 -->
+
+
+
+  <!-- ===== PRODUCT CATEGORY GRID ===== -->
+  <section class="categories section-pad" id="categories">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-eyebrow">CATEGORIES</span>
+        <h2 class="section-title">카테고리</h2>
+      </div>
+      <div class="cat-grid">
+        <a href="#" class="cat-card" data-reveal>
+          <div class="cat-icon-wrap cat-icon-1">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" />
+              <path d="M20 8v24M8 20h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </div>
+          <span class="cat-label">웰니스</span>
+          <span class="cat-sub">Wellness</span>
+        </a>
+        <a href="#" class="cat-card" data-reveal style="--delay:0.1s">
+          <div class="cat-icon-wrap cat-icon-2">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" />
+              <path d="M20 14v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="cat-label">데일리 케어</span>
+          <span class="cat-sub">Daily Care</span>
+        </a>
+        <a href="#" class="cat-card" data-reveal style="--delay:0.2s">
+          <div class="cat-icon-wrap cat-icon-3">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6l2.5 8H30l-6.5 4.5 2.5 8L20 22l-6 4.5 2.5-8L10 14h7.5L20 6z" stroke="currentColor"
+                stroke-width="1.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="cat-label">프리미엄</span>
+          <span class="cat-sub">Premium</span>
+        </a>
+        <a href="#" class="cat-card" data-reveal style="--delay:0.3s">
+          <div class="cat-icon-wrap cat-icon-4">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 28c0-6 3-10 8-10s8 4 8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <circle cx="20" cy="13" r="4" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8 34h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="cat-label">Huty</span>
+          <span class="cat-sub">Lifestyle</span>
+        </a>
+        <a href="#" class="cat-card" data-reveal style="--delay:0.4s">
+          <div class="cat-icon-wrap cat-icon-5">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5" />
+              <path d="M14 20h12M20 14v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="cat-label">뷰티 케어</span>
+          <span class="cat-sub">Beauty</span>
+        </a>
+        <a href="#" class="cat-card" data-reveal style="--delay:0.5s">
+          <div class="cat-icon-wrap cat-icon-6">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 10c-5 0-10 5-10 10 0 3 1.5 5.5 4 7.5V32h12v-4.5c2.5-2 4-4.5 4-7.5 0-5-5-10-10-10z"
+                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M16 32v2h8v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="cat-label">영양 & 보충</span>
+          <span class="cat-sub">Nutrition</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HUTY SPOTLIGHT ===== -->
+  <section class="huty-spotlight section-pad-lg">
+    <div class="huty-inner">
+      <div class="huty-visual" data-reveal>
+        <div class="huty-card-stack">
+          <div class="huty-card hc-back"></div>
+          <div class="huty-card hc-mid"></div>
+          <div class="huty-card hc-front">
+            <img src="images/huty-bg.2400.jpeg" class="huty-image" alt="Huty 이미지" loading="lazy" decoding="async" />
+            <div class="hc-content">
+              <span class="hc-brand">Huty</span>
+              <p class="hc-desc">프리미엄 웰니스</p>
+              <div class="hc-dots">
+                <span class="hc-dot hc-dot-active"></span>
+                <span class="hc-dot"></span>
+                <span class="hc-dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="huty-text" data-reveal>
+        <span class="section-eyebrow">BRAND SPOTLIGHT</span>
+        <h2 class="section-title">Huty와 함께<br />더 나은 내일을</h2>
+        <p class="section-body">
+          Huty는 HH-WORKS의 시그니처 웰니스 브랜드입니다. 피부, 수면, 에너지, 면역력까지 — 삶의 모든 영역에서 당신의 건강을 책임집니다.
+        </p>
+        <div class="huty-features">
+          <div class="huty-feature">
+            <span class="feature-num">01</span>
+            <div>
+              <strong>과학 기반 설계</strong>
+              <p>성분 구조 중심 포뮬러링</p>
+            </div>
+          </div>
+          <div class="huty-feature">
+            <span class="feature-num">02</span>
+            <div>
+              <strong>엄선 원료 사용</strong>
+              <p>전 성분 자연 유래, 투명 공개</p>
+            </div>
+          </div>
+          <div class="huty-feature">
+            <span class="feature-num">03</span>
+            <div>
+              <strong>품질 기준 설계</strong>
+              <p>내부 안정성 프로세스 적용</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-reveal id="hutyCTA">Huty 살펴보기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS / TRUST ===== -->
+  <!--
+<section class="trust section-pad">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-eyebrow">REVIEWS</span>
+        <h2 class="section-title">고객의 목소리</h2>
+      </div>
+      <div class="review-carousel" id="reviewCarousel">
+        <div class="review-track" id="reviewTrack">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"HH-WORKS 제품을 사용하고 나서 에너지 레벨이 완전히 달라졌어요. 매일 아침이 기대됩니다."</p>
+            <span class="review-author">— 김지연, 서울</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Huty 라인은 정말 피부에 잘 맞아요. 자극 없이 부드럽고 효과도 확실합니다."</p>
+            <span class="review-author">— 박민준, 부산</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"성분이 투명하게 공개되어 있어서 믿고 사용할 수 있습니다. 가족 모두 애용중이에요."</p>
+            <span class="review-author">— 이수아, 대전</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★☆</div>
+            <p class="review-text">"패키징이 너무 고급스럽고 선물로도 최고입니다. 친한 친구들에게도 추천했어요."</p>
+            <span class="review-author">— 최현우, 인천</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"수면의 질이 눈에 띄게 좋아졌습니다. 이제는 하루도 빠질 수 없는 루틴이 됐어요."</p>
+            <span class="review-author">— 강예빈, 광주</span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="이전">‹</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="nextBtn" aria-label="다음">›</button>
+      </div>
+    </div>
+  </section>
+-->
+
+  <!-- ===== FULL-WIDTH CTA BANNER ===== -->
+  <section class="cta-banner" id="cta">
+    <div class="cta-bg">
+      <div class="cta-gradient"></div>
+    </div>
+    <div class="cta-content" data-reveal>
+      <span class="section-eyebrow cta-eyebrow">JOIN HH-WORKS</span>
+      <h2 class="cta-title">지금 시작하세요</h2>
+      <p class="cta-body">멤버십 가입 시 첫 구매 15% 할인과 함께<br />다양한 혜택을 누리세요.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-lg" id="ctaJoin">멤버십 가입</button>
+        <button class="btn btn-ghost btn-lg" id="ctaLearn">더 알아보기</button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text footer-logo">HH-WORKS</span>
+          <p class="footer-tagline">건강과 기술이 만나는 곳</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="none" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" aria-label="KakaoTalk" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="11" rx="9" ry="7" />
+                <path d="M7 14l-2 4 5-2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">제품</h4>
+          <ul class="footer-links">
+            <li><a href="#">웰니스</a></li>
+            <li><a href="#">데일리 케어</a></li>
+            <li><a href="#">Huty 라인</a></li>
+            <li><a href="#">프리미엄 에디션</a></li>
+            <li><a href="#">신제품</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">회사</h4>
+          <ul class="footer-links">
+            <li><a href="#">브랜드 소개</a></li>
+
+            <li><a href="#">채용 정보</a></li>
+            <li><a href="#">미디어 & 뉴스</a></li>
+            <li><a href="#">파트너십</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">고객 지원</h4>
+          <ul class="footer-links">
+            <li><a href="#">주문 조회</a></li>
+            <li><a href="#">배송 안내</a></li>
+            <li><a href="#">반품 & 교환</a></li>
+            <li><a href="#">자주 묻는 질문</a></li>
+            <li><a href="#">1:1 문의</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 HH-WORKS. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">개인정보 처리방침</a>
+          <a href="#">이용약관</a>
+          <a href="#">쿠키 정책</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PRODUCT POPUP MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" id="productModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+      <div class="modal-content" id="modalContent">
+        <!-- Dynamically populated via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="맨 위로">↑</button>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
