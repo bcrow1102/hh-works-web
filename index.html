@@ -147,22 +147,37 @@
         <span class="section-eyebrow">FEATURED</span>
         <h2 class="section-title">주요 브랜드</h2>
       </div>
+
       <div class="collection-grid">
-        <div class="collection-card collection-card-large" data-reveal>
+        <!-- PRO (Large) -->
+        <div class="collection-card collection-card-large card-pro" data-reveal>
           <div class="card-bg card-bg-1">
             <div class="card-orb"></div>
           </div>
-          <div class="card-content">
-            <span class="card-tag">BEST SELLER</span>
-            <h3 class="card-title">Huty Pro Series</h3>
-            <p class="card-desc">체계적인 웰니스 관리를 위한 프리미엄 라인</p>
-            <button class="btn btn-white-sm js-card-cta" data-product="huty-pro">지금 쇼핑하기</button>
+
+          <div class="huty-hero" aria-hidden="true">
+            <svg viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMid slice">
+              <image href="images/huty_ampoule_2400.png" width="1536" height="1536" x="-256" y="-60" />
+            </svg>
+          </div>
+          <div class="card-content card-content--pro">
+
+
+            <div class="pro-text">
+              <span class="card-tag">BEST SELLER</span>
+              <h3 class="card-title">Huty Pro Series</h3>
+              <p class="card-desc">체계적인 웰니스 관리를 위한 프리미엄 라인</p>
+              <button class="btn btn-white-sm js-card-cta" data-product="huty-pro">지금 쇼핑하기</button>
+            </div>
           </div>
         </div>
-        <div class="collection-card collection-card-top" data-reveal style="--delay:0.1s">
+
+        <div class="collection-card collection-card-top is-daily" data-reveal style="--delay:0.1s">
           <div class="card-bg card-bg-2">
+            <img class="card-bg-img" src="images/huty_daily_1024.png" alt="Daily Care" loading="lazy" />
             <div class="card-orb"></div>
           </div>
+
           <div class="card-content">
             <span class="card-tag">NEW</span>
             <h3 class="card-title">Daily Care</h3>
@@ -170,20 +185,25 @@
             <button class="btn btn-white-sm js-card-cta" data-product="daily-care">쇼핑하기</button>
           </div>
         </div>
-        <div class="collection-card collection-card-bottom" data-reveal style="--delay:0.2s">
+
+        <!-- SIGNATURE (Daily와 동일 구조/클래스) -->
+        <div class="collection-card collection-card-top is-signature" data-reveal style="--delay:0.2s">
           <div class="card-bg card-bg-3">
+            <img class="card-bg-img" src="images/huty_signa_768.png" alt="Signature Edition" loading="lazy" />
             <div class="card-orb"></div>
+            <div class="card-gradient"></div>
           </div>
+
           <div class="card-content">
             <span class="card-tag">LIMITED</span>
             <h3 class="card-title">Signature Edition</h3>
-            <p class="card-desc">한정판 시그니처 에디션 컬렉션</p>
-            <button class="btn btn-white-sm js-card-cta" data-product="signature">쇼핑하기</button>
+            <p class="card-desc">한정판 시그니처 에디션</p>
+            <button class="btn btn-white-sm js-card-cta" data-product="signature-edition">쇼핑하기</button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div> <!-- ✅ .collection-grid 닫기 -->
+    </div> <!-- ✅ .container 닫기 -->
+  </section> <!-- ✅ #collection 섹션 닫기 -->
 
 
 
@@ -272,6 +292,7 @@
           <div class="huty-card hc-back"></div>
           <div class="huty-card hc-mid"></div>
           <div class="huty-card hc-front">
+            <img src="images/huty-bg.2400.jpeg" class="huty-image" alt="Huty 이미지" loading="lazy" decoding="async" />
             <div class="hc-content">
               <span class="hc-brand">Huty</span>
               <p class="hc-desc">프리미엄 웰니스</p>
@@ -294,22 +315,22 @@
           <div class="huty-feature">
             <span class="feature-num">01</span>
             <div>
-              <strong>과학 기반 포뮬러</strong>
-              <p>임상 연구로 검증된 최적 배합</p>
+              <strong>과학 기반 설계</strong>
+              <p>성분 구조 중심 포뮬러링</p>
             </div>
           </div>
           <div class="huty-feature">
             <span class="feature-num">02</span>
             <div>
-              <strong>천연 고품질 원료</strong>
-              <p>전 성분 자연 유래, 투명하게 공개</p>
+              <strong>엄선 원료 사용</strong>
+              <p>전 성분 자연 유래, 투명 공개</p>
             </div>
           </div>
           <div class="huty-feature">
             <span class="feature-num">03</span>
             <div>
-              <strong>글로벌 인증</strong>
-              <p>국제 품질 기준 충족 및 인증</p>
+              <strong>품질 기준 설계</strong>
+              <p>내부 안정성 프로세스 적용</p>
             </div>
           </div>
         </div>
