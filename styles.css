@@ -2517,3 +2517,36 @@ img {
     padding: 1.25rem;
   }
 }
+
+/* =========================================
+   ONLY #collection mobile layout fix
+   (does NOT affect #categories or global)
+========================================= */
+@media (max-width: 768px) {
+
+  /* 주요브랜드 그리드만 1열 */
+  #collection>.container>.collection-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 16px !important;
+  }
+
+  /* 주요브랜드 내부 카드 배치 강제 해제 (2열 전용 규칙 제거) */
+  #collection>.container>.collection-grid>.collection-card-large {
+    grid-row: auto !important;
+    min-height: 360px;
+  }
+
+  #collection>.container>.collection-grid>.collection-card-top,
+  #collection>.container>.collection-grid>.collection-card-bottom {
+    grid-column: auto !important;
+  }
+
+  /* 카드 자체 안전 */
+  #collection>.container>.collection-grid>.collection-card {
+    min-width: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}
