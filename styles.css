@@ -641,7 +641,7 @@ img {
 
 /* ---------- BRAND INTRO ---------- */
 .brand-intro {
-  background: var(--c-black);
+  background: var(--g-hero);
 }
 
 .brand-intro-grid {
@@ -2318,80 +2318,75 @@ img {
 }
 
 /* ============================================================
-   DAILY + SIGNATURE — ONE SHOT PATCH (FINAL)
-   - cover 유지
-   - PC 크롭 최소화: Signature는 줌아웃 + 포지션
-   - Daily는 가방 살리기 유지
-   ============================================================ */
+   COLLECTION CARDS — HARD RESET VERSION
+   완전 재구성 (grid 충돌 제거 / SVG 제거 / IMG 기준)
+============================================================ */
 
-/* 공통: 카드 bg 이미지 레이어 안정화 */
+/* =============================
+   GRID 기본
+============================= */
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* 모바일 1열 */
+@media (max-width:768px) {
+  .collection-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .collection-card {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* =============================
+   DAILY + SIGNATURE
+============================= */
+
+.collection-card.is-daily,
+.collection-card.is-signature {
+  position: relative;
+  overflow: hidden;
+}
+
 .collection-card.is-daily .card-bg,
 .collection-card.is-signature .card-bg {
   position: absolute;
   inset: 0;
-  overflow: hidden;
 }
 
-/* 공통: bg 이미지 기본 */
 .collection-card.is-daily .card-bg-img,
 .collection-card.is-signature .card-bg-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
-
-  object-fit: cover !important;
-  transform-origin: 50% 0%;
 }
 
-/* =======================
-   DAILY (가방 살리기)
-   ======================= */
-.collection-card.is-daily .card-bg {
-  background: var(--g-card-2);
-}
-
+/* DAILY */
 .collection-card.is-daily .card-bg-img {
-  object-position: 50% 62% !important;
-  /* = center 62% */
-  transform: none !important;
+  object-position: 50% 62%;
 }
 
-/* PC에서 Daily 카드 높이 유지 */
-@media (min-width: 769px) {
+@media (min-width:769px) {
   .collection-card.is-daily {
-    min-height: 500px !important;
+    min-height: 680px;
   }
 }
 
-/* =======================
-   SIGNATURE (PC 크롭 최소화)
-   - 포지션 위로 + 살짝 줌아웃
-   ======================= */
-/* =======================
-   SIGNATURE (PC)
-   - scale 제거(좌우 짤림 방지)
-   - y만 과감히 올리기
-   ======================= */
+/* SIGNATURE */
 .collection-card.is-signature .card-bg-img {
-  object-position: 50% 0% !important;
-  /* 더 위(최대) */
-  transform: none !important;
-  /* ✅ scale 제거 */
+  object-position: 50% 0%;
 }
 
-/* 모바일 유지 */
-@media (max-width: 768px) {
+@media (max-width:768px) {
   .collection-card.is-signature .card-bg-img {
-    object-position: 50% 12% !important;
-    transform: none !important;
+    object-position: 50% 12%;
   }
-}
-
-/* Signature만 hover 확대 차단(원하면 유지) */
-.collection-card.is-signature:hover .card-bg {
-  transform: none !important;
 }
 
 @media (min-width:769px) {
@@ -2400,110 +2395,180 @@ img {
   }
 }
 
-@media (min-width: 769px) {
-  .collection-card.is-daily {
-    min-height: 680px !important;
-  }
-}
-
-/* ============================================================
-   HUTY PRO — ONE SHOT FINAL (TOP BAR KILL)
-   ============================================================ */
+/* =============================
+   PRO LARGE CARD (IMG 기반)
+============================= */
 
 .collection-card.collection-card-large.card-pro {
   position: relative;
   overflow: hidden;
-  width: 100%;
   background: #fff;
-
-  padding: 0;
-  box-shadow: none;
-
-  --pro-safe-bottom: 110px;
-  --pro-hero-bleed: 80px;
-  /* ✅ 상단 띠 제거용: 60~120 사이로 */
 }
 
-/* ✅ 카드 공통 상단 오버레이(띠) 주범 제거 */
-.collection-card.collection-card-large.card-pro::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Pro에서 불필요한 bg/orb 제거 */
+/* 기존 bg 제거 */
 .collection-card.collection-card-large.card-pro .card-bg,
 .collection-card.collection-card-large.card-pro .card-orb {
-  display: none !important;
+  display: none;
 }
 
-/* ===== HERO: 위로 “bleed” 시켜서 상단 빈틈 제거 ===== */
+/* hero 영역 */
 .collection-card.collection-card-large.card-pro .huty-hero {
   position: absolute;
-  left: 0;
-  right: 0;
-
-  top: calc(var(--pro-hero-bleed) * -1);
-  bottom: 0;
-
+  inset: 0;
   z-index: 0;
-  pointer-events: none;
-  background: #fff;
 }
 
-.collection-card.collection-card-large.card-pro .huty-hero svg {
+/* IMG cover */
+.collection-card.collection-card-large.card-pro .pro-hero-img {
   width: 100%;
-  height: calc(100% + var(--pro-hero-bleed));
-  /* ✅ 위로 늘려서 빈틈 제거 */
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
-  background: #fff;
 }
 
-/* ===== 하단 그라데이션 (하단만) ===== */
+/* SVG 완전 차단 */
+.collection-card.collection-card-large.card-pro .huty-hero svg {
+  display: none;
+}
+
+/* 하단 그라데이션 */
 .collection-card.collection-card-large.card-pro::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: var(--pro-safe-bottom);
+  height: 120px;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, .6) 0%,
+      rgba(0, 0, 0, .25) 45%,
+      rgba(0, 0, 0, 0) 100%);
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, .60) 0%,
-      rgba(0, 0, 0, .28) 45%,
-      rgba(0, 0, 0, 0) 100%);
 }
 
-/* ===== 콘텐츠 하단 고정 ===== */
+/* 콘텐츠 하단 고정 */
 .collection-card.collection-card-large.card-pro .card-content {
-  position: absolute !important;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
   padding: 2rem;
   box-sizing: border-box;
-  pointer-events: none;
 }
 
-.collection-card.collection-card-large.card-pro .card-content button,
-.collection-card.collection-card-large.card-pro .card-content a {
-  pointer-events: auto;
-}
-
-.collection-card.collection-card-large.card-pro .pro-text {
-  max-width: 520px;
-}
-
-/* ===== 모바일 ===== */
-@media (max-width: 640px) {
-  .collection-card.collection-card-large.card-pro {
-    --pro-safe-bottom: 100px;
-    --pro-hero-bleed: 60px;
-  }
-
+@media screen and (max-width: 640px) {
   .collection-card.collection-card-large.card-pro .card-content {
     padding: 1.25rem;
   }
 }
 
+/* =============================
+   PRO LARGE CARD (IMG 기반) - SCOPED
+   ============================= */
+
+#collection .collection-card.collection-card-large.card-pro {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* 기존 bg 제거 */
+#collection .collection-card.collection-card-large.card-pro .card-bg,
+#collection .collection-card.collection-card-large.card-pro .card-orb {
+  display: none;
+}
+
+/* hero 영역 */
+#collection .collection-card.collection-card-large.card-pro .huty-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* IMG cover */
+#collection .collection-card.collection-card-large.card-pro .pro-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* 하단 그라데이션 */
+#collection .collection-card.collection-card-large.card-pro::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, .6) 0%,
+      rgba(0, 0, 0, .25) 45%,
+      rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 콘텐츠 하단 고정 */
+#collection .collection-card.collection-card-large.card-pro .card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  #collection .collection-card.collection-card-large.card-pro .card-content {
+    padding: 1.25rem;
+  }
+}
+
+/* PRO 큰 카드 상단 검은 오버레이(::after) 제거 */
+#collection .collection-card.collection-card-large.card-pro::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 혹시 ::before도 쓰고 있으면 같이 제거(안전) */
+#collection .collection-card.collection-card-large.card-pro::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ===== DESKTOP HERO CTA 정상 흐름 복귀 ===== */
+@media (min-width: 769px) {
+  #home .hero-ctas {
+    position: relative;
+    right: auto;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    margin-top: 28px;
+  }
+}
+
+/* ===== DESKTOP HERO CTA 정상 흐름 (2번 상태 유지) ===== */
+@media (min-width: 769px) {
+
+  #home .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    /* 타이틀과 버튼 간격 */
+  }
+
+  #home .hero-ctas {
+    position: static !important;
+    /* absolute 완전 제거 */
+    transform: none !important;
+    margin: 0;
+  }
+
+}
